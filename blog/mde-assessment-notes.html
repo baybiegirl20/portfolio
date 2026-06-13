@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MDE Assessment Notes · Brittany</title>
+  <meta name="description" content="Microsoft Defender for Endpoint: key concepts, assessment notes, and what I learned." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A0E1A'/><text y='22' x='4' font-size='18'>🛡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Blog post overrides */
+    body { --sidebar-w: 0px; }
+    .sidebar { display: none; }
+    main { margin-left: 0; max-width: 780px; margin: 0 auto; }
+
+    .post-header {
+      padding: 3rem 2rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .post-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.06em;
+      color: var(--muted); text-decoration: none;
+      margin-bottom: 1.75rem; transition: color 0.2s;
+    }
+    .post-back:hover { color: var(--accent); }
+    .post-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; color: var(--accent);
+      letter-spacing: 0.12em; margin-bottom: 0.75rem;
+    }
+    .post-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700; color: var(--white);
+      letter-spacing: -0.02em; line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .post-meta {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .post-body {
+      padding: 2.5rem 2rem 4rem;
+      font-size: 0.95rem; line-height: 1.8; color: var(--body);
+    }
+    .post-body h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem; font-weight: 600;
+      color: var(--white); margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+    }
+    .post-body h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--white); margin: 1.75rem 0 0.6rem;
+    }
+    .post-body p { margin-bottom: 1.1rem; }
+    .post-body ul, .post-body ol {
+      margin: 0.75rem 0 1.1rem 1.5rem;
+    }
+    .post-body li { margin-bottom: 0.4rem; }
+    .post-body code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      color: var(--accent);
+    }
+    .post-body pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .post-body pre code {
+      background: none; border: none; padding: 0;
+      color: var(--body); font-size: 0.82rem;
+    }
+    .callout {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent2);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+    .callout strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.08em;
+      color: var(--accent2); display: block; margin-bottom: 0.4rem;
+    }
+
+    .post-nav {
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; gap: 1rem;
+    }
+    .post-nav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.06em;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .post-nav a:hover { color: var(--accent); }
+
+    .top-bar {
+      position: sticky; top: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 50;
+    }
+    .top-bar-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem; font-weight: 700;
+      color: var(--white); text-decoration: none;
+    }
+    .reading-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; background: var(--accent);
+      z-index: 100; width: 0%;
+      transition: width 0.1s linear;
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<div class="top-bar">
+  <a href="../index.html" class="top-bar-logo">Brittany ↗</a>
+  <button class="theme-toggle" id="themeToggle" style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.04em;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:0.3rem 0.6rem;cursor:pointer;color:var(--muted)">◐ LIGHT</button>
+</div>
+
+<main>
+  <div class="post-header">
+    <a href="../index.html#blog" class="post-back">← BACK TO NOTES</a>
+    <div class="post-eyebrow">ENDPOINT SECURITY · LAB NOTES</div>
+    <h1 class="post-title">Microsoft Defender for Endpoint: Assessment Notes &amp; Key Concepts</h1>
+    <div class="post-meta">
+      <span>JUN 2025</span>
+      <span>~8 MIN READ</span>
+      <span>BRITTANY</span>
+    </div>
+  </div>
+
+  <article class="post-body">
+
+    <p>After completing the Microsoft Defender for Endpoint (MDE) course and working through the final assessment, I wanted to document the key concepts — particularly the ones that were more nuanced than they first appeared.</p>
+
+    <div class="callout">
+      <strong>// TL;DR</strong>
+      Hardware-based isolation (Windows Defender Application Guard) is a browser-level protection. Automation levels control how much MDE auto-remediates. Always onboard devices through the Security Center, not Intune directly.
+    </div>
+
+    <h2>Hardware-Based Isolation</h2>
+
+    <p>This tripped me up at first. Hardware-based isolation in MDE refers specifically to <strong>Windows Defender Application Guard (WDAG)</strong>, which opens untrusted browser sessions in a lightweight Hyper-V container — isolating them from the host OS at the hardware virtualization level.</p>
+
+    <p>Key things to know:</p>
+    <ul>
+      <li>It's browser-level isolation (Microsoft Edge), not full VM isolation</li>
+      <li>Requires a CPU with virtualization extensions (Intel VT-x / AMD-V)</li>
+      <li>Untrusted sites run in the container; files downloaded there are sandboxed</li>
+      <li>Application Guard is separate from Windows Sandbox (which is a full isolated environment)</li>
+    </ul>
+
+    <h2>Automation Levels</h2>
+
+    <p>MDE's automated investigation and remediation (AIR) has three automation levels that control how much the system acts on its own:</p>
+
+    <ul>
+      <li><strong>No automated response</strong> — Alerts only; security team handles everything manually</li>
+      <li><strong>Semi (require approval)</strong> — MDE investigates and recommends, but a human approves every remediation action</li>
+      <li><strong>Full automation</strong> — MDE investigates and remediates without requiring human approval</li>
+    </ul>
+
+    <div class="callout">
+      <strong>// GOTCHA</strong>
+      "Semi - require approval for core folders remediation" means only core folder actions need approval, not all remediations. Easy to misread this on an assessment.
+    </div>
+
+    <h2>Device Onboarding</h2>
+
+    <p>Devices get onboarded to MDE through the <strong>Microsoft Defender Security Center</strong> (security.microsoft.com), not directly through Intune. Intune can be used to deploy the onboarding package, but MDE itself manages the enrolled devices.</p>
+
+    <p>Onboarding methods by device type:</p>
+    <ul>
+      <li>Windows 10/11: Group Policy, Intune/MDM, local script, SCCM</li>
+      <li>macOS: Intune, JAMF, manual package</li>
+      <li>Linux: manual script or Ansible</li>
+      <li>Mobile (iOS/Android): Microsoft Defender for Endpoint app via Intune</li>
+    </ul>
+
+    <h2>MDE + Defender for Office 365 Integration</h2>
+
+    <p>When MDE and Microsoft Defender for Office 365 (MDO) are both active, they share signals through Microsoft 365 Defender (now Microsoft Defender XDR). This means:</p>
+
+    <ul>
+      <li>Email-based threats detected by MDO can trigger endpoint investigations in MDE</li>
+      <li>Unified incident queue — one alert can contain signals from both products</li>
+      <li>Automated cross-product investigation: if a phishing email is opened and malware executed, the investigation spans email + endpoint automatically</li>
+    </ul>
+
+    <h2>What I'd Review Again</h2>
+
+    <p>The areas I'd spend more time on before a real certification exam:</p>
+    <ul>
+      <li>Attack Surface Reduction (ASR) rules — there are a lot of them and their exact scopes matter</li>
+      <li>Indicator of Compromise (IoC) management and custom detections</li>
+      <li>The difference between blocking and auditing modes for ASR</li>
+      <li>Roles and RBAC within the Security Center</li>
+    </ul>
+
+  </article>
+
+  <div class="post-nav">
+    <a href="../index.html#blog">← ALL NOTES</a>
+    <a href="claude-api-study.html">NEXT: Claude API Study Notes →</a>
+  </div>
+</main>
+
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const article = document.querySelector('.post-body');
+    if (!article) return;
+    const total = article.offsetHeight;
+    const scrolled = window.scrollY - article.offsetTop + window.innerHeight * 0.3;
+    const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+    document.getElementById('readingProgress').style.width = pct + '%';
+  });
+
+  // Theme toggle (same as main)
+  const toggle = document.getElementById('themeToggle');
+  const body   = document.body;
+  const saved  = localStorage.getItem('theme');
+  const applyTheme = (t) => {
+    body.classList.toggle('light', t === 'light');
+    toggle.textContent = t === 'light' ? '◑ DARK' : '◐ LIGHT';
+  };
+  applyTheme(saved || 'dark');
+  toggle?.addEventListener('click', () => {
+    const next = body.classList.contains('light') ? 'dark' : 'light';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
+</script>
+</body>
+</html>

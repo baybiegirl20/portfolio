@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Brittany — Cybersecurity portfolio showcasing labs, certifications, projects, and learning journey in security, networking, and programming." />
+  <title>Brittany · Cybersecurity Portfolio</title>
+
+  <!-- Favicon (inline SVG data URI) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A0E1A'/><text y='22' x='4' font-size='18'>🛡</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Skip to main content (accessibility) -->
+<a href="#hero" style="position:absolute;left:-9999px;top:1rem;padding:0.5rem 1rem;background:var(--accent);color:#0A0E1A;font-family:monospace;font-size:0.8rem;border-radius:4px;z-index:9999;text-decoration:none" onfocus="this.style.left='1rem'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+<!-- Mobile hamburger -->
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+
+  <!-- ════ SIDEBAR ════ -->
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+
+    <div class="sidebar-logo">
+      <div class="sidebar-avatar" title="Profile photo">🛡</div>
+      <div class="moniker">Brittany</div>
+      <div class="role">// CYBERSECURITY · TECH</div>
+    </div>
+
+    <div class="sidebar-status">
+      <span class="status-dot" aria-hidden="true"></span>
+      SYSTEM ONLINE
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#hero"      class="active"><span class="nav-icon" aria-hidden="true">⬡</span> HOME</a></li>
+        <li><a href="#about">              <span class="nav-icon" aria-hidden="true">◈</span> ABOUT</a></li>
+        <li><a href="#projects">           <span class="nav-icon" aria-hidden="true">◎</span> PROJECTS &amp; LABS</a></li>
+        <li><a href="#certs">              <span class="nav-icon" aria-hidden="true">◻</span> CERTIFICATIONS</a></li>
+        <li><a href="#skills">             <span class="nav-icon" aria-hidden="true">≋</span> SKILLS</a></li>
+        <li><a href="#journey">            <span class="nav-icon" aria-hidden="true">◁</span> JOURNEY</a></li>
+        <li><a href="#blog">               <span class="nav-icon" aria-hidden="true">✦</span> NOTES &amp; WRITEUPS</a></li>
+        <li><a href="#resources">          <span class="nav-icon" aria-hidden="true">◈</span> RESOURCES</a></li>
+        <li><a href="#contact">            <span class="nav-icon" aria-hidden="true">◉</span> CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-controls">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">◐ LIGHT</button>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" aria-label="LinkedIn">LI</a>
+      <a href="https://tryhackme.com/p/yourprofile" target="_blank" rel="noopener" aria-label="TryHackMe">THM</a>
+    </div>
+
+  </aside>
+
+  <!-- ════ MAIN ════ -->
+  <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section id="hero" aria-label="Introduction">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-eyebrow">PORTFOLIO · v2025.1</div>
+
+      <div class="hero-terminal" role="img" aria-label="Terminal showing: whoami — cybersecurity student writer builder">
+        <div class="terminal-bar" aria-hidden="true">
+          <span class="t-dot red"></span>
+          <span class="t-dot yellow"></span>
+          <span class="t-dot green"></span>
+        </div>
+        <div class="t-line"><span class="t-prompt">→ </span><span class="t-cmd">whoami</span></div>
+        <div class="t-line"><span class="t-out">cybersecurity student · writer · builder</span></div>
+        <div class="t-line" style="margin-top:0.5rem"><span class="t-prompt">→ </span><span class="t-cmd">ls skills/</span></div>
+        <div class="t-line"><span class="t-out">networking/&nbsp; python/&nbsp; threat-analysis/&nbsp; labs/&nbsp; writing/</span></div>
+        <div class="t-line" style="margin-top:0.5rem"><span class="t-prompt">→ </span><span class="t-cursor" aria-hidden="true"></span></div>
+      </div>
+
+      <h1>Building at the intersection<br>of <span class="accent">security</span> and systems.</h1>
+      <p class="hero-subtitle">
+        Documenting the hands-on journey through cybersecurity, networking,
+        programming, and the evolving AI landscape — one lab at a time.
+      </p>
+
+      <div class="hero-tags" aria-label="Specializations">
+        <span class="tag teal">CYBERSECURITY</span>
+        <span class="tag teal">NETWORKING</span>
+        <span class="tag blue">PROGRAMMING</span>
+        <span class="tag blue">PYTHON</span>
+        <span class="tag pink">AI / ML</span>
+        <span class="tag pink">TECHNICAL WRITING</span>
+      </div>
+
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary">↓ VIEW WORK</a>
+        <a href="#contact"  class="btn btn-ghost">GET IN TOUCH</a>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">01 // ABOUT</div>
+        <h2 id="about-heading">Who I Am</h2>
+      </div>
+
+      <!-- Currently studying widget -->
+      <div class="studying-widget reveal">
+        <div class="studying-icon">📡</div>
+        <div style="flex:1">
+          <div class="studying-label">// CURRENTLY STUDYING</div>
+          <div class="studying-title">Claude API &amp; Agentic Workflows</div>
+          <div class="studying-sub">Deeplearning.AI · Tool use, MCP, RAG pipelines</div>
+          <div class="studying-progress-wrap">
+            <div class="studying-progress-bar" style="width: 70%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm a cybersecurity student and technical writer documenting my hands-on journey
+            through the world of security, networking, and programming. With a background in
+            content and a growing toolkit in technical fields, I bridge the gap between
+            complex systems and clear communication.
+          </p>
+          <p>
+            My work includes building lab environments, writing structured guides for
+            real-world security tools, completing coursework across threat analysis and
+            endpoint defense, and exploring the Claude API and agentic AI workflows.
+          </p>
+          <p>
+            I learn in public — every project, lab, and certification here is part of
+            a deliberate, documented path toward a career in security and technology.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">LAB GUIDES BUILT</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">CERTS IN PROGRESS</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2+</div>
+            <div class="stat-label">YEARS BUILDING</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">CURIOSITY</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS & LABS ── -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">02 // PROJECTS &amp; LABS</div>
+        <h2 id="projects-heading">Work &amp; Hands-On Labs</h2>
+        <p class="section-desc">Real environments, real tools, real documentation.</p>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-type">// LAB GUIDE</div>
+          <div class="project-title">Cybersecurity Lab Guide Portfolio</div>
+          <div class="project-desc">
+            A structured collection of lab walkthroughs covering threat analysis, endpoint
+            security, and network defense using industry-standard tools.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Microsoft Defender</span>
+            <span class="stack-tag">Endpoint Security</span>
+            <span class="stack-tag">Technical Writing</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">↗ VIEW GUIDE</a>
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="project-link">⊞ GITHUB</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-type">// API PROJECT</div>
+          <div class="project-title">Claude API Integration Study</div>
+          <div class="project-desc">
+            Hands-on coursework exploring the Anthropic Claude API — tool use,
+            MCP architecture, RAG pipelines, prompt engineering, and agentic workflows.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Claude API</span>
+            <span class="stack-tag">MCP</span>
+            <span class="stack-tag">RAG</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">↗ VIEW PROJECT</a>
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="project-link">⊞ GITHUB</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-type">// DEV ENVIRONMENT</div>
+          <div class="project-title">Python Dev Environment Setup</div>
+          <div class="project-desc">
+            Documented Windows 10 Python setup — Anaconda, Jupyter, VS Code,
+            environment management, and tooling decisions with pros/cons analysis.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">VS Code</span>
+            <span class="stack-tag">Jupyter</span>
+            <span class="stack-tag">Windows</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">↗ READ WRITEUP</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-type">// ASSESSMENT</div>
+          <div class="project-title">Microsoft Defender for Endpoint</div>
+          <div class="project-desc">
+            Final assessment covering hardware-based isolation, device onboarding,
+            automation levels, and MDE integration with Defender for Office 365.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">MDE</span>
+            <span class="stack-tag">Microsoft 365</span>
+            <span class="stack-tag">Endpoint Security</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">↗ VIEW NOTES</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-type">// TOOL · IN PROGRESS</div>
+          <div class="project-title">Claude Code PR Description Skill</div>
+          <div class="project-desc">
+            Building a custom Claude Code skill that auto-generates structured pull request
+            descriptions from diffs — reducing friction in code review workflows.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Claude Code</span>
+            <span class="stack-tag">Bash</span>
+            <span class="stack-tag">Git</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="project-link">⊞ GITHUB</a>
+          </div>
+        </div>
+
+        <div class="project-card" style="border-style:dashed;opacity:0.55">
+          <div class="project-type">// COMING SOON</div>
+          <div class="project-title">Next Project</div>
+          <div class="project-desc">Always building. Check back for new labs, tools, and write-ups.</div>
+          <div class="project-links">
+            <a href="#contact" class="project-link">→ FOLLOW ALONG</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CERTIFICATIONS ── -->
+    <section id="certs" aria-labelledby="certs-heading">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">03 // CERTIFICATIONS</div>
+        <h2 id="certs-heading">Credentials &amp; Courses</h2>
+        <p class="section-desc">Documenting what's earned, in progress, and on deck.</p>
+      </div>
+      <div class="certs-grid">
+
+        <div class="cert-card">
+          <div class="cert-icon" aria-hidden="true">🛡</div>
+          <div class="cert-info">
+            <div class="cert-name">Microsoft Defender for Endpoint</div>
+            <div class="cert-issuer">MICROSOFT</div>
+            <span class="cert-status earned">● COMPLETED</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon" aria-hidden="true">🤖</div>
+          <div class="cert-info">
+            <div class="cert-name">Claude API Course</div>
+            <div class="cert-issuer">ANTHROPIC / DEEPLEARNING.AI</div>
+            <span class="cert-status in-progress">◌ IN PROGRESS</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon" aria-hidden="true">🔒</div>
+          <div class="cert-info">
+            <div class="cert-name">CompTIA Security+</div>
+            <div class="cert-issuer">COMPTIA</div>
+            <span class="cert-status planned">◌ PLANNED</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon" aria-hidden="true">🌐</div>
+          <div class="cert-info">
+            <div class="cert-name">CompTIA Network+</div>
+            <div class="cert-issuer">COMPTIA</div>
+            <span class="cert-status planned">◌ PLANNED</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon" aria-hidden="true">🐍</div>
+          <div class="cert-info">
+            <div class="cert-name">Python for Everybody</div>
+            <div class="cert-issuer">COURSERA / UMICH</div>
+            <span class="cert-status planned">◌ PLANNED</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon" aria-hidden="true">🎯</div>
+          <div class="cert-info">
+            <div class="cert-name">TryHackMe Paths</div>
+            <div class="cert-issuer">TRYHACKME</div>
+            <span class="cert-status in-progress">◌ IN PROGRESS</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">04 // SKILLS</div>
+        <h2 id="skills-heading">Technical Skills</h2>
+        <p class="section-desc">An honest map of where I am and where I'm headed.</p>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <div class="skill-group-title">// CYBERSECURITY</div>
+          <div class="skill-item"><span class="skill-name">Threat Analysis</span>     <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Endpoint Security</span>   <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">SIEM / Logging</span>      <div class="skill-bar-wrap"><div class="skill-bar" style="width:45%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Incident Response</span>   <div class="skill-bar-wrap"><div class="skill-bar" style="width:40%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Vulnerability Mgmt</span>  <div class="skill-bar-wrap"><div class="skill-bar" style="width:45%"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">// NETWORKING</div>
+          <div class="skill-item"><span class="skill-name">TCP/IP Fundamentals</span> <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">DNS / DHCP</span>          <div class="skill-bar-wrap"><div class="skill-bar" style="width:55%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Firewalls &amp; VPNs</span>    <div class="skill-bar-wrap"><div class="skill-bar" style="width:50%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Network Analysis</span>    <div class="skill-bar-wrap"><div class="skill-bar" style="width:45%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Wireshark</span>           <div class="skill-bar-wrap"><div class="skill-bar" style="width:40%"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">// PROGRAMMING</div>
+          <div class="skill-item"><span class="skill-name">Python</span>              <div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Bash / Shell</span>        <div class="skill-bar-wrap"><div class="skill-bar" style="width:50%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">APIs &amp; REST</span>        <div class="skill-bar-wrap"><div class="skill-bar" style="width:55%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Git / GitHub</span>        <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">HTML / CSS</span>          <div class="skill-bar-wrap"><div class="skill-bar" style="width:55%"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">// TOOLS &amp; PLATFORMS</div>
+          <div class="skill-item"><span class="skill-name">Microsoft Defender</span> <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">VS Code</span>             <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Claude / AI Tools</span>  <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Jupyter / Anaconda</span> <div class="skill-bar-wrap"><div class="skill-bar" style="width:55%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Technical Writing</span>  <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── LEARNING JOURNEY ── -->
+    <section id="journey" aria-labelledby="journey-heading">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">05 // JOURNEY</div>
+        <h2 id="journey-heading">Learning Timeline</h2>
+        <p class="section-desc">The path, documented honestly.</p>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2025 · ONGOING</div>
+          <div class="timeline-title">Cybersecurity Lab Guide Portfolio</div>
+          <div class="timeline-body">Building a structured portfolio of lab walkthroughs using Claude Projects to manage and organize a growing volume of guides across endpoint security, networking, and threat analysis.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2025 · IN PROGRESS</div>
+          <div class="timeline-title">Claude API &amp; Agentic AI Coursework</div>
+          <div class="timeline-body">Completed deep-dive modules on Claude tool use, MCP architecture, RAG pipelines, workflow patterns, and prompt engineering via structured course notes and active self-quizzing.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2025 · COMPLETED</div>
+          <div class="timeline-title">Microsoft Defender for Endpoint Course</div>
+          <div class="timeline-body">Completed final assessment covering hardware-based isolation, automation levels, device onboarding, and MDE integration with Defender for Office 365.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024–2025</div>
+          <div class="timeline-title">Python Dev Environment &amp; Tooling</div>
+          <div class="timeline-body">Set up and documented a Python development environment on Windows 10 — exploring Anaconda, JupyterLab, and VS Code, settling on VS Code for its local, integrated experience.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot future"></div>
+          <div class="timeline-date">NEXT UP</div>
+          <div class="timeline-title">CompTIA Security+ Preparation</div>
+          <div class="timeline-body">Beginning structured study toward Security+ certification — formalizing knowledge in threat management, cryptography, and identity access management.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot future"></div>
+          <div class="timeline-date">HORIZON</div>
+          <div class="timeline-title">Network+ &amp; Practical Penetration Testing</div>
+          <div class="timeline-body">Deepening networking fundamentals via CompTIA Network+ while working through TryHackMe labs for hands-on offensive security exposure.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── BLOG / NOTES ── -->
+    <section id="blog" aria-labelledby="blog-heading">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">06 // NOTES &amp; WRITEUPS</div>
+        <h2 id="blog-heading">Learning in Public</h2>
+        <p class="section-desc">Lab notes, TILs, and technical write-ups from the trenches.</p>
+      </div>
+      <div class="blog-grid">
+
+        <a href="blog/mde-assessment-notes.html" class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">JUN 2025</span>
+            <span class="blog-category">ENDPOINT SECURITY</span>
+          </div>
+          <div class="blog-title">Microsoft Defender for Endpoint: Assessment Notes &amp; Key Concepts</div>
+          <div class="blog-excerpt">Hardware-based isolation, automation levels, and what I got wrong on the final assessment — with the corrected understanding.</div>
+          <div class="blog-read-more">READ WRITEUP →</div>
+        </a>
+
+        <a href="blog/claude-api-study.html" class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">MAY 2025</span>
+            <span class="blog-category">AI / API</span>
+          </div>
+          <div class="blog-title">Understanding MCP Architecture and Tool Use in the Claude API</div>
+          <div class="blog-excerpt">Breaking down the difference between tool use, MCP connectors, and agentic workflows — and how they actually fit together.</div>
+          <div class="blog-read-more">READ WRITEUP →</div>
+        </a>
+
+        <a href="blog/python-dev-setup.html" class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">APR 2025</span>
+            <span class="blog-category">PROGRAMMING</span>
+          </div>
+          <div class="blog-title">Setting Up a Python Dev Environment on Windows 10: What Actually Works</div>
+          <div class="blog-excerpt">Anaconda vs vanilla Python, Jupyter vs VS Code, and why I landed on VS Code as my daily driver — with all the gotchas documented.</div>
+          <div class="blog-read-more">READ WRITEUP →</div>
+        </a>
+
+        <a href="blog/" class="blog-card" style="border-style:dashed;opacity:0.55">
+          <div class="blog-meta"><span class="blog-date">ONGOING</span></div>
+          <div class="blog-title">More notes coming...</div>
+          <div class="blog-excerpt">New lab notes and write-ups added regularly. Everything I learn, documented as I go.</div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── RESOURCES ── -->
+    <section id="resources" aria-labelledby="resources-heading">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">07 // RESOURCES</div>
+        <h2 id="resources-heading">Technical Resources</h2>
+        <p class="section-desc">Platforms, tools, and references I actively use and recommend.</p>
+      </div>
+      <div class="resources-grid">
+
+        <a href="https://tryhackme.com" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-icon">🎯</div>
+          <div>
+            <div class="resource-name">TryHackMe</div>
+            <div class="resource-desc">Guided CTF-style labs for hands-on security practice. Great for beginners through intermediate.</div>
+          </div>
+        </a>
+
+        <a href="https://docs.anthropic.com" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-icon">🤖</div>
+          <div>
+            <div class="resource-name">Anthropic Docs</div>
+            <div class="resource-desc">Claude API documentation, prompt engineering guides, and MCP architecture references.</div>
+          </div>
+        </a>
+
+        <a href="https://learn.microsoft.com" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-icon">🛡</div>
+          <div>
+            <div class="resource-name">Microsoft Learn</div>
+            <div class="resource-desc">Official learning paths for Azure, Microsoft Defender, and security fundamentals.</div>
+          </div>
+        </a>
+
+        <a href="https://www.comptia.org" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-icon">📋</div>
+          <div>
+            <div class="resource-name">CompTIA</div>
+            <div class="resource-desc">Certification paths in security, networking, and IT fundamentals. Industry-recognized credentials.</div>
+          </div>
+        </a>
+
+        <a href="https://python.org" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-icon">🐍</div>
+          <div>
+            <div class="resource-name">Python.org</div>
+            <div class="resource-desc">Official Python docs, tutorials, and PEP references for language fundamentals.</div>
+          </div>
+        </a>
+
+        <a href="https://github.com" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-icon">⊞</div>
+          <div>
+            <div class="resource-name">GitHub</div>
+            <div class="resource-desc">Version control, project showcasing, and open-source collaboration hub.</div>
+          </div>
+        </a>
+
+        <a href="https://hackthebox.com" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-icon">⬡</div>
+          <div>
+            <div class="resource-name">Hack The Box</div>
+            <div class="resource-desc">Advanced hands-on labs and CTF challenges for offensive and defensive security skills.</div>
+          </div>
+        </a>
+
+        <a href="https://deeplearning.ai" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-icon">◈</div>
+          <div>
+            <div class="resource-name">DeepLearning.AI</div>
+            <div class="resource-desc">Structured AI and ML courses including Claude API, prompt engineering, and LLM fundamentals.</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">08 // CONTACT</div>
+        <h2 id="contact-heading">Get In Touch</h2>
+      </div>
+      <div class="contact-inner reveal">
+        <p style="color:var(--muted);font-size:0.92rem">
+          Open to conversations about cybersecurity, technical writing, AI tools,
+          collaboration opportunities, and learning resources.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:your@email.com" class="contact-link">
+            <span class="c-icon">✉</span>
+            <div class="contact-link-text">
+              <div class="c-label">EMAIL</div>
+              your@email.com
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" class="contact-link">
+            <span class="c-icon" style="font-family:sans-serif;font-weight:700;font-size:0.9rem">in</span>
+            <div class="contact-link-text">
+              <div class="c-label">LINKEDIN</div>
+              linkedin.com/in/yourprofile
+            </div>
+          </a>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="contact-link">
+            <span class="c-icon">⊞</span>
+            <div class="contact-link-text">
+              <div class="c-label">GITHUB</div>
+              github.com/yourusername
+            </div>
+          </a>
+          <a href="https://tryhackme.com/p/yourprofile" target="_blank" rel="noopener" class="contact-link">
+            <span class="c-icon">🎯</span>
+            <div class="contact-link-text">
+              <div class="c-label">TRYHACKME</div>
+              tryhackme.com/p/yourprofile
+            </div>
+          </a>
+        </div>
+
+        <a href="./resume.pdf" id="resumeBtn" class="resume-btn" download>
+          ↓ DOWNLOAD RESUME
+        </a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
